@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		049A1CC12D97CAF00026AF41 /* ExAppHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ExAppHomeWork.app; path = "/Users/mac/Desktop/ExAppHomeWork/build/Debug-iphoneos/ExAppHomeWork.app"; sourceTree = "<absolute>"; };
+		049A1CC12D97CAF00026AF41 /* ExAppHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExAppHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -46,7 +46,16 @@
 			isa = PBXGroup;
 			children = (
 				049A1CC32D97CAF00026AF41 /* ExAppHomeWork */,
+				049A1CC22D97CAF00026AF41 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		049A1CC22D97CAF00026AF41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				049A1CC12D97CAF00026AF41 /* ExAppHomeWork.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,7 +108,7 @@
 			mainGroup = 049A1CB82D97CAF00026AF41;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 049A1CB82D97CAF00026AF41;
+			productRefGroup = 049A1CC22D97CAF00026AF41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
