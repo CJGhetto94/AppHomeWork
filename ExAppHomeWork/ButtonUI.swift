@@ -7,6 +7,7 @@ class ButtonUI: UIButton {
         super.init(frame: .zero)
         setupButton(setTitle, colorButton, shadowButton)
         setupLayout()
+        layoutSubviews()
     }
     
     
@@ -25,11 +26,16 @@ class ButtonUI: UIButton {
         
         if shadowButtonBool {
             layer.cornerRadius = 20
-            layer.shadowColor = UIColor.red.cgColor
+            layer.shadowColor = UIColor.purple.cgColor
             layer.shadowOpacity = 0.7
             layer.shadowOffset = CGSize(width: 5, height: 5)
             layer.shadowRadius = 10
         }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let shadowPath = UIBezierPath(rect: bounds)
+        layer.shadowPath = shadowPath.cgPath
     }
     
     private func setupLayout() {
