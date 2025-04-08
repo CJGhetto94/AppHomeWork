@@ -10,19 +10,26 @@ class ButtonUI: UIButton {
         layoutSubviews()
     }
     
-    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let shadowPath = UIBezierPath(rect: bounds)
+        layer.shadowPath = shadowPath.cgPath
+    }
+}
+
+//MARK: - Setup Button
+private extension ButtonUI {
     
-    private func setupButton(_ setTitleButton: String,_ colorButton: UIColor ,_ shadowButton: Bool) {
+    func setupButton(_ setTitleButton: String,_ colorButton: UIColor ,_ shadowButton: Bool) {
         let shadowButtonBool = shadowButton
         
         setTitle(setTitleButton, for: .normal)
         tintColor = colorButton
-        
         
         if shadowButtonBool {
             layer.cornerRadius = 20
@@ -32,13 +39,12 @@ class ButtonUI: UIButton {
             layer.shadowRadius = 10
         }
     }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        let shadowPath = UIBezierPath(rect: bounds)
-        layer.shadowPath = shadowPath.cgPath
-    }
+}
+
+//MARK: - Setup Layout Button
+private extension ButtonUI {
     
-    private func setupLayout() {
+    func setupLayout() {
         translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -49,3 +55,5 @@ class ButtonUI: UIButton {
         ])
     }
 }
+
+

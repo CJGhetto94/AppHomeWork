@@ -18,34 +18,38 @@ class ViewController: UIViewController {
         
         setupLabel()
         setupStackView()
-        view.addSubview(stackView)
+        addSomeStackView(textLabel, buttonUIOne, buttonUITwo)
+        addSomeView(stackView)
         setupLayout()
         
         for users in helper.getListOfHumans() {
             print(users.personalInformationOfUser.firstNameSecondName)
         }
     }
+}
+
+//MARK: - Add Stack on View
+private extension ViewController {
     
-    private func setupLabel() {
-        let randomUserName = helper.getListOfHumans()
-        textLabel.text = randomUserName.randomElement()?.personalInformationOfUser.firstNameSecondName
-        textLabel.font = .systemFont(ofSize: 25)
-        textLabel.textColor = .green
-        textLabel.textAlignment = .center
-    }
-    
-    private func setupStackView() {
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        stackView.spacing = 5
+    func addSomeStackView(_ customStack: UIView...) {
         
-        stackView.addArrangedSubview(textLabel)
-        stackView.addArrangedSubview(buttonUIOne)
-        stackView.addArrangedSubview(buttonUITwo)
+        for addStackView in customStack {
+            stackView.addArrangedSubview(addStackView)
+        }
     }
-    
-    private func setupLayout() {
+}
+//MARK: - Add View on Superview
+private extension ViewController {
+    func addSomeView(_ customView: UIView...) {
+        
+        for addView in customView {
+            view.addSubview(addView)
+        }
+    }
+}
+//MARK: - Setup Layout View
+private extension ViewController {
+    func setupLayout() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         buttonUIOne.translatesAutoresizingMaskIntoConstraints = false
@@ -59,4 +63,22 @@ class ViewController: UIViewController {
         ])
     }
 }
-
+//MARK: - Setup Stack View
+private extension ViewController {
+    func setupStackView() {
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 5
+    }
+}
+//MARK: - Setup Label on View
+private extension ViewController {
+    func setupLabel() {
+        let randomUserName = helper.getListOfHumans()
+        textLabel.text = randomUserName.randomElement()?.personalInformationOfUser.firstNameSecondName
+        textLabel.font = .systemFont(ofSize: 25)
+        textLabel.textColor = .green
+        textLabel.textAlignment = .center
+    }
+}
